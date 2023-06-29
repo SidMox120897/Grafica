@@ -35,6 +35,13 @@ void punto::Dibujar2D()
     glEnd();
 }
 
+void punto::Dibujar2D(float x1,float y1){
+    glColor3ub(this->Red,this->Green,this->Blue);
+    glPointSize(this->tamanio);
+    glBegin(GL_POINTS);
+    glVertex2d(x1, y1);
+    glEnd();
+}
 
 float punto::get_x()
 {

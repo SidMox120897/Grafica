@@ -3,10 +3,13 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 
 #include "glad/include/glad/glad.h"
-//#include "Figuras/punto.h"
+#include "Figuras/punto.h"
 #include "Figuras/recta.h"
+#include "Figuras/poligono.h"
+#include "Figuras/circulo.h"
 
 
 //g++ prueba5.cpp Figuras/punto.cpp  Figuras/recta.cpp glad/src/glad.c -I.glad/include -lSDL2 -ldl -Wall -o pixel
@@ -33,27 +36,13 @@ int main(int argc, char* argv[]) {
 
     SDL_Init(SDL_INIT_VIDEO);
 
-    punto A=punto(0,0,0);
-    A.set_tamanio(4);
-    A.RGBf(0,0,255);
+    punto cero=punto(0,0,0);
+    cero.set_tamanio(4);
+    cero.RGBf(0,0,255);
 
-    punto B=punto(100,100,0);
-    B.set_tamanio(4);
 
-    B.RGBf(0,0,255);
-
-    recta R=recta(A,B);
-    R.RGBf(255,0,0);
-    
-    recta R1=recta(0,0,600,480);
-    recta R2=recta(0,0,600,-480);
-    recta R3=recta(0,0,-600,-480);
-    recta R4=recta(0,0,-600,480);
-
-    recta R5=recta(0,0,600,0);
-    recta R6=recta(0,0,-600,0);
-    recta R7=recta(0,0,0,-480);
-    recta R8=recta(0,0,0,480);
+    circulo C= circulo(cero,75);
+    circulo C2= circulo(cero,75/2);
 
 
     window = SDL_CreateWindow(
@@ -91,19 +80,9 @@ int main(int argc, char* argv[]) {
         glClearColor(0.0f, 0.0f, 0.0f,1.0f);
         glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-        //A.Dibujar2D();
 
-        R.DibujarRecta();
-
-        // R1.DibujarRecta();
-        // R2.DibujarRecta();
-        // R3.DibujarRecta();
-        // R4.DibujarRecta();
-
-        // R5.DibujarRecta();
-        // R6.DibujarRecta();
-        // R7.DibujarRecta();
-        // R8.DibujarRecta();
+        C.dibujarBresenham();
+        C2.dibujarPuntoMedio();
 
 
         SDL_GL_SwapWindow(window);

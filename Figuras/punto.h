@@ -22,6 +22,7 @@ public:
     void set_tamanio(float T);
     void Imprimir();
     void Dibujar2D();
+    void Dibujar2D(float x1,float y1);
 
     float get_x();
     float get_y();

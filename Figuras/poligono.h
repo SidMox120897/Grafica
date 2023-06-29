@@ -10,12 +10,19 @@
 #define POLIGONO_H
 
 
-class poligono : public RGB, public recta
+class poligono : public RGB
 {
 private:
-    std::vector<punto> V;
+    std::vector<punto> V; /* Vertices*/
 public:
-    poligono(/* args */);
+    poligono();
+    poligono(std::vector<punto> V);
+    void addVertices(punto V);
+    void DibujarPoligono();
+    void GenerarPoligonoRegular(int N, punto C, float radio);
+    void GenerarPoligonoCirculo(punto C, float radio);
+    void GenerarPoligonoEstrella(int N, punto C, float r1,float r2);
+
     ~poligono();
 };
 

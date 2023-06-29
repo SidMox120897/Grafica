@@ -1,5 +1,9 @@
 #include "recta.h"
 
+recta::recta()
+{
+}
+
 recta::recta(punto I,punto F)
 {
     this->I=I;
